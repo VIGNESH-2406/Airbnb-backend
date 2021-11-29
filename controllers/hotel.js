@@ -78,9 +78,8 @@ export const images = async (req, res) => {
 };
 
 export const allImages = async (req, res) => {
-  let hotel = await Hotel.findById(req.params.hotelId)
-    .select("-image.data")
-    .exec();
+  let hotel = await Hotel.findById(req.params.hotelId).exec();
+  // .select("-image.data")
 
   res.send(hotel.image);
 };
